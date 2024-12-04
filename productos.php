@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <title>Productos</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,8 +44,8 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+      <a href="indexad.html" class="logo d-flex align-items-center">
+        <img src="assets/img/Logo.png   " alt="">
         <span class="d-none d-lg-block">Bassprod</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -275,7 +275,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="indexad.html">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -284,53 +284,13 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link " href="users-profile.html">
+        <a class="nav-link " href="productos.php">
           <i class="bi bi-person"></i>
           <span>Productos</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
+      
 
     </ul>
 
@@ -343,8 +303,8 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item">productos</li>
+          <li class="breadcrumb-item active">vista</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -524,7 +484,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Bassprod</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->

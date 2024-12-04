@@ -20,7 +20,7 @@ $ruta = "assets/productos/". $ficheron;
 $i_np = $link->prepare("INSERT INTO producto (nombre,cantidad,precio,tipo,proveedor,dir) VALUES (?,?,?,?,?,?)");
 $i_np->bind_param("siiiis",$Nombre,$Cantidad,$Precio,$tipo,$proveedor,$ruta);
 if ($i_np->execute()) {
-  header('location:../productos.php');
+  header('location:../../productos.php');
 } else {  
   echo "Error: " . $i_np->error;
 }

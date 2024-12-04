@@ -8,7 +8,10 @@
 
 /*--------------------------------------------------------------
 # General
+
 --------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
   scroll-behavior: smooth;
   --primary-color:#DC5F00;
@@ -21,6 +24,9 @@ body {
   font-family: "Open Sans", sans-serif;
   background: #f6f9ff;
   color: #444444;
+}
+a,p{
+  font-family: "Work Sans", serif;  
 }
 
 a {
@@ -39,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Nunito", sans-serif;
+  font-family: "Comfortaa", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -380,7 +386,7 @@ h6 {
   font-family: "Nunito", sans-serif;
 }
 
-.header {
+header.header {
   transition: all 0.5s;
   z-index: 997;
   height: 60px;
@@ -1236,6 +1242,7 @@ h6 {
 /* producto */
 .prod-crd{
   position: relative;
+  margin-left: 50px;
 }
 .card-img-pro{
   position: absolute;
