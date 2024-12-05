@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include'conexion_be.php';
+    include('conexion_be.php');
 
     if (isset($_POST['Usuario']) && isset($_POST['Codigo'])){
         function validate($data){
@@ -16,11 +16,11 @@
 
 // se manda una alerta si el campo requerido esta en blanco
     if (empty($Usuario)){
-        header("Location: ../inse.php?error=El usuario es requerido");
+        header("Location: ../../inse.php?error=El usuario es requerido");
         exit();
     }
     elseif (empty($Codigo)){
-        header("Location: ../inse.php?error=El codigo es requerido");
+        header("Location: ../../inse.php?error=El codigo es requerido");
         exit();
 }
 // incriptar contraseña
@@ -37,7 +37,7 @@
     }elseif ($filas['cargo'] == 2){
         header("location:../usuario/usuario.php");#; code...
     }else{
-                header("Location: ../inse.php?error=El usuario o la clave son incorrectas");
+                header("Location: ../../inse.php?error=El usuario o la clave son incorrectas");
                 exit();
     }}}
     //     $row = mysqli_fetch_assoc($result);

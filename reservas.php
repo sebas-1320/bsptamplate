@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Productos</title>
+  <title>Reservas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -307,7 +307,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Productos</li>
+          <li class="breadcrumb-item">Reservas</li>
           <li class="breadcrumb-item active">Vista</li>
         </ol>
       </nav>
@@ -323,29 +323,26 @@
                 <div class="modal-dialog">
                   <div class="modal-content prod">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Productos</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Reservas</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body form">
                       <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Nuevo producto</button>
+                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Cliente</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Agregar Cantidad</button>
+                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reserva</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Proveedores</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">Tipo</button>
+                          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Tipo Reserva</button>
                         </li>
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                               
-                                <form action="assets/php/productos.php" id="N-producto" method="post" enctype="multipart/form-data">
-                                  <input type="text" name="Nombre" placeholder="nombre">
+                                <form action="assets/php/reservas.php" id="N-producto" method="post" enctype="multipart/form-data">
+                                  <input type="text" name="ID" placeholder="ID">
                                     <?php
                                       include("assets/php/conexionbd.php");
                                       $query = "SELECT id , nombre FROM tipo_pr";
@@ -361,7 +358,7 @@
                                             
                                         echo "</select>";
                                     ?>
-                                    <input type="number" name="Cantidad" placeholder="Cantidad">
+                                    <input type="number" name="Nombre" placeholder="Nombre">
                                   <?php 
                                       include("assets/php/conexionbd.php");
                                       $query = "SELECT NID , nombre FROM proveedor";
@@ -379,9 +376,27 @@
                               
                                       echo "</select>";
                                     ?>
-                                  <input type="number" name="Precio" placeholder="Precio">
+                                    <input type="number" name="Telefono" placeholder="Telefono">
+                                  <?php 
+                                      include("assets/php/conexionbd.php");
+                                      $query = "SELECT NID , nombre FROM proveedor";
+                                      $result = mysqli_query($link, $query) or die("Error en la consulta de programa");
+                              
+                                      echo "<select name='cmbumedidads1'>";
+                                        echo  "<option selected value=0> --Seleccione un proveedor -- </option>";
+                                        
+                                      while($row=mysqli_fetch_array($result))
+                                      {
+                                                        echo  "<option value=$row[0]> $row[1] </option>";
+                                                    }
+                                            
+                                        echo "</select>";
+                              
+                                      echo "</select>";
+                                    ?>
+                                  <input type="number" name="Correo" placeholder="Correo">
                                   <input type="file" name="imagenp" accept="image/*">
-                                  <button type="submit">Guardar Producto</button>
+                                  <button type="submit">Guardar Cliente</button>
                                 </form>
                         </div>
                         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
@@ -421,7 +436,7 @@
                               
                                       echo "</select>";
                                     ?>
-                            <button type="submit">Guardar</button>
+                            <button type="submit">Guardar Reserva</button>
                           </form>
                         </div>
                         <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
