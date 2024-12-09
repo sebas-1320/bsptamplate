@@ -340,116 +340,55 @@
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                              
-                                <form action="assets/php/reservas.php" id="N-producto" method="post" enctype="multipart/form-data">
-                                  <input type="text" name="ID" placeholder="ID">
-                                    <?php
-                                      include("assets/php/conexionbd.php");
-                                      $query = "SELECT id , nombre FROM tipo_pr";
-                                      $result = mysqli_query($link, $query) or die("Error en la consulta de programa");
-                              
-                                      echo "<select name='cmbumedidads'>";
-                                        echo  "<option selected value=0> --Seleccione un tipo-- </option>";
-                                        
-                                      while($row=mysqli_fetch_array($result))
-                                      {
-                                                        echo  "<option value=$row[0]> $row[1] </option>";
-                                                    }
-                                            
-                                        echo "</select>";
-                                    ?>
-                                    <input type="number" name="Nombre" placeholder="Nombre">
-                                  <?php 
-                                      include("assets/php/conexionbd.php");
-                                      $query = "SELECT NID , nombre FROM proveedor";
-                                      $result = mysqli_query($link, $query) or die("Error en la consulta de programa");
-                              
-                                      echo "<select name='cmbumedidads1'>";
-                                        echo  "<option selected value=0> --Seleccione un proveedor -- </option>";
-                                        
-                                      while($row=mysqli_fetch_array($result))
-                                      {
-                                                        echo  "<option value=$row[0]> $row[1] </option>";
-                                                    }
-                                            
-                                        echo "</select>";
-                              
-                                      echo "</select>";
-                                    ?>
-                                    <input type="number" name="Telefono" placeholder="Telefono">
-                                  <?php 
-                                      include("assets/php/conexionbd.php");
-                                      $query = "SELECT NID , nombre FROM proveedor";
-                                      $result = mysqli_query($link, $query) or die("Error en la consulta de programa");
-                              
-                                      echo "<select name='cmbumedidads1'>";
-                                        echo  "<option selected value=0> --Seleccione un proveedor -- </option>";
-                                        
-                                      while($row=mysqli_fetch_array($result))
-                                      {
-                                                        echo  "<option value=$row[0]> $row[1] </option>";
-                                                    }
-                                            
-                                        echo "</select>";
-                              
-                                      echo "</select>";
-                                    ?>
-                                  <input type="number" name="Correo" placeholder="Correo">
-                                  <input type="file" name="imagenp" accept="image/*">
-                                  <button type="submit">Guardar Cliente</button>
-                                </form>
+                          <form action="assets/php/cliente.php" id="N-producto" method="post" enctype="multipart/form-data">
+                            <input type="text" name="NID" placeholder="NID"><br>
+                            <input type="text" name="Nombre" placeholder="Nombre"><br>
+                            <input type="number" name="Telefono" placeholder="Telefono"><br>
+                            <input type="email" name="Correo" placeholder="Correo"><br>
+                            <button type="submit">Guardar Cliente</button>
+                          </form>
                         </div>
                         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                          <form action="assets/php/add_p.php" method="post" id="A-producto" >
-                          <?php
+                          <form action="assets/php/reservas.php" method="post" id="A-producto" >
+                            <input type="datetime-local" name="Fecha_hora" placeholder="Fecha y Hora"><br>
+                            <?php
                                      include"assets/php/conexionbd.php";
-                                     $query = "SELECT id , nombre FROM producto";
+                                     $query = "SELECT NID , Nombre FROM cliente";
                                      $result = mysqli_query($link, $query) or die("Error en la consulta de programa");
                              
                                      echo "<select name='productadd'>";
-                                     echo "<option selected value='0'>--Seleccione una producto--</option>";
+                                     echo "<option selected value='0'>--Seleccione un cliente--</option>";
                                      while($row=mysqli_fetch_array($result))
                                      {
                                                        echo  "<option value=$row[0]> $row[1] </option>";
                                                    }
-                                           
                                        echo "</select>";
-                             
                                      echo "</select>";
-                              ?>
-                                  
-                            <input type="number" name="cantidad_add" id="">
-                            <?php
+                              ?><br>
+                              <?php
                                      include"assets/php/conexionbd.php";
-                                     $query = "SELECT NID , nombre FROM proveedor";
+                                     $query = "SELECT tipo, Nombre FROM tipo_re";
                                      $result = mysqli_query($link, $query) or die("Error en la consulta de programa");
                              
-                                     echo "<select name='productaddpro'>";
-                                     echo "<option selected value='0'>--Seleccione un proveedor--</option>";
-                             
+                                     echo "<select name='productadd'>";
+                                     echo "<option selected value='0'>--Seleccione un tipo de reserva--</option>";
                                      while($row=mysqli_fetch_array($result))
-                                      {
-                                                        echo  "<option value=$row[0]> $row[1] </option>";
-                                                    }
-                                            
-                                        echo "</select>";
-                              
-                                      echo "</select>";
-                                    ?>
+                                     {
+                                                       echo  "<option value=$row[0]> $row[1] </option>";
+                                                   }
+                                       echo "</select>";
+                                     echo "</select>";
+                              ?><br>
+                            <input type="number" name="Cantidad_personas" placeholder="Cantidad Personas"><br>
+                            <input type="number" name="Mesa_asignada" placeholder="Mesa Asignada"><br>
+                            <input type="text" name="Observacion" placeholder="Observacion"><br>
                             <button type="submit">Guardar Reserva</button>
                           </form>
                         </div>
                         <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                          <form action="../php/proveedor.php" method="post">
-                            <input type="nombre" name="N-proveedor" placeholder="Proveedor">
-                            <input type="number" name="DNI-proo" placeholder="Numero-proo">
+                          <form action="assets/php/tip_res.php" method="post">
+                            <input type="text" name="Nombre" placeholder="Nombre"><br>
                             <button type="submit">Guardar</button>
-                          </form>
-                        </div>
-                        <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
-                          <form action="../php/tipo.php" method="post">
-                            <input type="text" name="n_tipo" id="">
-                            <button type="submit" id="btn_tipo">Guardar</button>
                           </form>
                         </div>
                       </div>             
@@ -488,7 +427,7 @@
               <img src="<?php echo $row['dir']?>" class="card-img-pro" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><?php echo $row['nombre']?></h5>
-                <p class="card-text">Cantidad: <?php echo $row['cantidad']?><br>Precio: <?php echo $row['precio']?></p>
+                <p class="card-text">Dia: <?php echo $row['cantidad']?><br>Hora: <?php echo $row['precio']?></p>
               </div>
             </article>
 

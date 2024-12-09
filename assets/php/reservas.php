@@ -8,26 +8,21 @@
 <body>
 <?php
 include 'conexionbd.php';
-//nuevo producto
-$Nombre= $_POST["Nombre"];
-$Cantidad= $_POST["Cantidad"];
-$Precio= $_POST["Precio"];
-$tipo=$_POST["cmbumedidads"];
-$proveedor=$_POST["cmbumedidads1"];
-$fichero = $_FILES["imagenp"];
-$ficheron = $_FILES["imagenp"]["name"];
-$ruta = "assets/productos/". $ficheron;
-$i_np = $link->prepare("INSERT INTO producto (nombre,cantidad,precio,tipo,proveedor,dir) VALUES (?,?,?,?,?,?)");
-$i_np->bind_param("siiiis",$Nombre,$Cantidad,$Precio,$tipo,$proveedor,$ruta);
+
+$Fecha_Hora= $_POST["Fecha_Hora"];
+$NID= $_POST["NID"];
+$Tipo_reserva= $_POST["Tipo_reserva"];
+$Cantidad_personas=$_POST["Cantidad_personas"];
+$Mesa_asignada=$_POST["Mesa_asignada"];
+$Observacion=$_POST["Observacion"];
+
+$i_np = $link->prepare("INSERT INTO reservas (Fecha_Hora,NID,Tipo_reserva,Cantidad_personas,Mesa_asignada,Observacion) VALUES (?,?,?,?,?,?)");
+$i_np->bind_param("iiiiis",$Fecha_Hora,$NID,$Tipo_reserva,$Cantidad_personas,$Mesa_asignada,$Observacion);
 if ($i_np->execute()) {
-  header('location:../../productos.php');
+  header('location:../../reservas.php');
 } else {  
   echo "Error: " . $i_np->error;
 }
-
-
-// Cargando el fichero en la carpeta "subidas"
-move_uploaded_file($fichero["tmp_name"], "../productos/".$fichero["name"]);
 
 
 ?>
